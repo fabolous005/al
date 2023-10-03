@@ -1,7 +1,15 @@
 use draw::*;
+use tokio::fs;
+use warp::Filter;
 
-fn main() {
-    // create a canvas to draw on
+#[tokio::main]
+async fn main() {
+    let body = fs::read_to_string("index.html").await.unwrap().as_str();
+
+    let routes = warp::any().map(move || warp::reply::html(body));
+
+    // Start the warp server
+    warp::serve(routes).run(([127, 0, 0, 1], 3030)).await;
     let mut canvas = Canvas::new(100, 100);
 
     // create a new drawing
