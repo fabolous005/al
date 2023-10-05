@@ -8,10 +8,11 @@
 <body>
     <canvas id="myCanvas"></canvas>
     <script type="module">
-        import init, { draw_rectangle } from "./pkg/al.js";
+        import init, { new_app, draw_grid } from "./pkg/al.js";
         async function run() {
             await init();
-            draw_rectangle();
+            let app = new_app();
+            draw_grid(app);
         }
         run();
     </script>

@@ -1,6 +1,9 @@
 [package]
 name = "al"
 version = "0.1.0"
+description = "Artificial life"
+repository = "https://github.com/fabolous005/al.git"
+license = "Apache2"
 edition = "2021"
 
 [lib]
